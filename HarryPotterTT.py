@@ -1,8 +1,11 @@
+from flask import Flask, render_template, request # import flask
+import sys
+app = Flask(__name__) # create an app instance
 import requests
 import random
 def random_HPcharacter():
     potter_number = random.randint(1, 151)
-    url = 'https://hp-api.herokuapp.com/api/characters'.format(potter_number)
+    url = "https://hp-api.herokuapp.com/api/characters".format(potter_number)
     response = requests.get(url)
     random_number = random.randint(0, len(response.json())-1)
     potter = response.json()[random_number]
