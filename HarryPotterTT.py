@@ -20,7 +20,7 @@ def random_HPcharacter():
         "patronus": potter["patronus"],
     }
 species = {'human': 1, 'werewolf' : 2, 'cat' : 0, 'half-giant' :2 }
-house = {'Gryffindor': 4, 'Slytherin': 0, 'Ravenclaw': 3, 'Hufflepuff': 2}
+house = {'Gryffindor': 4, 'Slytherin': 0, 'Ravenclaw': 3, 'Hufflepuff': 2, '':0, }
 def patronus():
    return random.randint(0, 10)
 def ancestry():
@@ -55,21 +55,25 @@ def run():
         else:
             print('Draw!')
             my_score = score_opponent + 0
-    if stat_choice == ancestry:
-        if house[my_stat] > house[opponent_stat]:
+    if stat_choice == 'ancestry':
+        user_roll = ancestry()
+        comp_roll = ancestry()
+        if user_roll > comp_roll:
             print('You Win!')
             my_score = score_opponent + 1
-        elif house[my_stat] < house[opponent_stat]:
+        elif comp_roll > user_roll:
             print('You Lose!')
             my_score = score_opponent - 1
         else:
             print('Draw!')
             my_score = score_opponent + 0
-    if stat_choice == patronus:
-        if house[my_stat] > house[opponent_stat]:
+    if stat_choice == 'patronus':
+        user_roll = patronus()
+        comp_roll = patronus()
+        if user_roll > comp_roll:
             print('You Win!')
             my_score = score_opponent + 1
-        elif house[my_stat] < house[opponent_stat]:
+        elif comp_roll > user_roll:
             print('You Lose!')
             my_score = score_opponent -1
         else:
