@@ -31,63 +31,68 @@ score_opponent = 0
 def run():
     my_harrypotter = random_HPcharacter()
     print('You were given {}'.format(my_harrypotter['name']))
-    # print('Species: {}'.format(my_harrypotter['species']))
-    # print('House: {}'.format(my_harrypotter['house']))
-    # print('Patronus: {}'.format(my_harrypotter['patronus']))
-    # print('Ancestry: {}'.format(my_harrypotter['ancestry']))
-
     stat_choice = input('Which stat do you want to use? (species, house, patronus, ancestry) ')
+
     opponent_potter = random_HPcharacter()
     print('The opponent chose {}'.format(opponent_potter['name']))
-    # print('Species: {}'.format(opponent_potter['species']))
-    # print('House: {}'.format(opponent_potter['house']))
-    # print('Patronus: {}'.format(opponent_potter['patronus']))
-    # print('Ancestry: {}'.format(opponent_potter['ancestry']))
     my_stat = my_harrypotter[stat_choice]
     opponent_stat = opponent_potter[stat_choice]
+
     if stat_choice == 'species':
         if species[my_stat] > species[opponent_stat]:
-            print('{}! You Win!'.format(my_harrypotter['species']))
+            print('You drew {}! Opponent drew {}! You Win!'.format(my_harrypotter['species'],
+                                                                   opponent_potter['species']))
             my_score = score_opponent + 1
         elif species[my_stat] < species[opponent_stat]:
-            print('{} Wins! You Lose!'.format(opponent_potter['species']))
+            print('You drew {}! Opponent drew {}!  You Lose!'.format(my_harrypotter['species'],
+                                                                     opponent_potter['species']))
             my_score = score_opponent - 1
         else:
-            print('Draw!')
+            print("You drew {}! Opponent drew {}! It's a Draw!".format(my_harrypotter['species'],
+                                                                        opponent_potter['species']))
             my_score = score_opponent + 0
     if stat_choice == 'house':
         if house[my_stat] > house[opponent_stat]:
-            print('{}! You Win!'.format(my_harrypotter['house']))
+            print('You drew {}! Opponent drew {}! You Win!'.format(my_harrypotter['house'],
+                                                                   opponent_potter['house']))
             my_score = score_opponent + 1
         elif house[my_stat] < house[opponent_stat]:
-            print('{} Wins! You Lose!'.format(opponent_potter['house']))
+            print('You drew {}! Opponent drew {}!  You Lose!'.format(my_harrypotter['house'],
+                                                                     opponent_potter['house']))
             my_score = score_opponent - 1
         else:
-            print('Draw!')
+            print("You drew {}! Opponent drew {}! It's a Draw!".format(my_harrypotter['house'],
+                                                                        opponent_potter['house']))
             my_score = score_opponent + 0
     if stat_choice == 'ancestry':
         user_roll = ancestry()
         comp_roll = ancestry()
         if user_roll > comp_roll:
-            print('{}! You Win!'.format(my_harrypotter['ancestry']))
+            print('You drew {}! Opponent drew {}! You Win!'.format(my_harrypotter['ancestry'],
+                                                                   opponent_potter['ancestry']))
             my_score = score_opponent + 1
         elif comp_roll > user_roll:
-            print('{} Wins! You Lose!'.format(opponent_potter['ancestry']))
+            print('You drew {}! Opponent drew {}!  You Lose!'.format(my_harrypotter['ancestry'],
+                                                                     opponent_potter['ancestry']))
             my_score = score_opponent - 1
         else:
-            print('Draw!')
+            print("You drew {}! Opponent drew {}! It's a Draw!".format(my_harrypotter['ancestry'],
+                                                                        opponent_potter['ancestry']))
             my_score = score_opponent + 0
     if stat_choice == 'patronus':
         user_roll = patronus()
         comp_roll = patronus()
         if user_roll > comp_roll:
-            print('{}! You Win!'.format(my_harrypotter['patronus']))
+            print('You drew {}! Opponent drew {}! You Win!'.format(my_harrypotter['patronus'],
+                                                                   opponent_potter['patronus']))
             my_score = score_opponent + 1
         elif comp_roll > user_roll:
-            print('{} Wins! You Lose!'.format(opponent_potter['patronus']))
+            print('You drew {}! Opponent drew {}!  You Lose!'.format(my_harrypotter['patronus'],
+                                                                     opponent_potter['patronus']))
             my_score = score_opponent -1
         else:
-            print('Draw!')
+            print("You drew {}! Opponent drew {}! It's a Draw!".format(my_harrypotter['patronus'],
+                                                                     opponent_potter['patronus']))
             my_score = score_opponent + 0
 for _ in range(3):
     run()
